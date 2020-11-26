@@ -24,14 +24,12 @@
         <td>{{ $item->name }}</td>
         <td>
             <form action="{{route('catgroup.destroy',$item->id)}}" method="POST">
-
                 <a class="btn btn-info" href="">Show</a>
 
-            <a class="btn btn-primary" href="{{route('catgroup.edit',$item->id)}}">Edit</a>
+                <a class="btn btn-primary" href="{{route('catgroup.edit',$item->id)}}">Edit</a>
 
                 @csrf
                 @method('DELETE')
-
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
         </td>

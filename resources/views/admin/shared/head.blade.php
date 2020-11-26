@@ -7,7 +7,7 @@
     <meta name="description"
         content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Material Pro Lite Template by WrapPixel</title>
+    <title>X-men Shop</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Custom CSS -->
     <link href="{!! asset('admin/css/style.min.css') !!}" rel="stylesheet">

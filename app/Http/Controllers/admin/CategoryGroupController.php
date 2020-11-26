@@ -40,8 +40,8 @@ class CategoryGroupController extends Controller
         $request->validate([
             'name'=>'required'
         ]);
-        CategoryGroup::created($request->all());
-        return redirect()->route('catgroup.index')->with('success','Thêm danh mục thành công!');
+        CategoryGroup::create($request->all());
+        return redirect()->route('catgroup.index')->with('success','Thêm danh mục mới thành công !!');
     }
 
     /**
@@ -61,8 +61,9 @@ class CategoryGroupController extends Controller
      * @param  \App\Models\CategoryGroup  $categoryGroup
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoryGroup $categoryGroup)
+    public function edit($id)
     {
+        $categoryGroup=CategoryGroup::find($id);
         return view('admin.categoryGroup.edit',compact('categoryGroup'));
     }
 
@@ -73,13 +74,14 @@ class CategoryGroupController extends Controller
      * @param  \App\Models\CategoryGroup  $categoryGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoryGroup $categoryGroup)
+    public function update(Request $request, $id)
     {
+        $categoryGroup=CategoryGroup::find($id);
         $request->validate([
             'name'=>'required'
         ]);
         $categoryGroup->update($request->all());
-        return redirect()->route('catgroup.index')->with('success','Chỉnh sửa danh mục thành công!');
+        return redirect()->route('catgroup.index')->with('success','Chỉnh danh mục mới thành công !!');
     }
 
     /**
@@ -88,10 +90,11 @@ class CategoryGroupController extends Controller
      * @param  \App\Models\CategoryGroup  $categoryGroup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryGroup $categoryGroup)
+    public function destroy($id)
     {
+        $categoryGroup=CategoryGroup::find($id);
         $categoryGroup->delete();
         return redirect()->route('catgroup.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Xóa danh mục thành công');
     }
 }

@@ -12,14 +12,14 @@
 </div>
 
 
-<form action="{{ route('catgroup.update',$categoryGroup->id) }}" method="POST">
+<form action="{{route('catgroup.update',$categoryGroup->id)}}" method="POST">
     @csrf
     @method('PUT')
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tên danh mục:</strong>
+                <strong>Tên danh mục</strong>
                 <input type="text" name="name" value="{{ $categoryGroup->name }}" class="form-control" placeholder="Tên danh mục">
             </div>
         </div>

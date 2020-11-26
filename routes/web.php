@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
+
+
+
+Route::group(['prefix' => "Ad"], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    Route::resource('catgroup', App\Http\Controllers\admin\CategoryGroupController::class);
 });

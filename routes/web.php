@@ -24,8 +24,4 @@ Route::group(['prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], fu
 });
 
 Route::get('fashionshop','App\Http\Controllers\frontend\TestController@pushData');
-Route::get('cc', function () {
-    return view('admin.index');
-Route::get('/SanSuy',function(){
-return view('sanduy');
-});
+

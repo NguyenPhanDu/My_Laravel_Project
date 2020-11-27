@@ -10,7 +10,11 @@
                                     class="hide-menu">Trang chủ</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{{route('catgroup.index') }}" aria-expanded="false">
-                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Nhóm danh mục</span></a>
+                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Danh mục</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{route('product.index') }}" aria-expanded="false">
+                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Sản phẩm</span></a>
                         </li>
                     </ul>
 

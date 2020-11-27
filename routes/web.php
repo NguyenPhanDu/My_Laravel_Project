@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['prefix' => "Ad"], function () {
+Route::group(['prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
-    Route::resource('catgroup', App\Http\Controllers\admin\CategoryGroupController::class);
+    Route::resource('catgroup', CategoryGroupController::class);
+    Route::resource('product', ProductController::class);
 });
+
+Route::get('fashionshop','App\Http\Controllers\frontend\TestController@pushData');

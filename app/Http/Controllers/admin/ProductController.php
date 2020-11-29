@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\CategoryGroup;
 use Illuminate\Http\Request;
-
+use App\Classes\ImageUpload;
 class ProductController extends Controller
 {
     /**
@@ -39,15 +39,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $products=$request->validate([
             "name"=>"required",
-            "mainImage"=>"required",
             "price"=>"required",
             "description"=>"required",
             "categoryId"=>"required"
         ]);
-
-        Product::create($request->all());
+        $products['mainImage']=ImageUpload::upload($request);
+        Product::create($products);
         return redirect()->route('product.index');
     }
 

@@ -23,5 +23,9 @@ Route::group(['prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], fu
     Route::resource('product', ProductController::class);
 });
 
-Route::get('fashionshop','App\Http\Controllers\frontend\TestController@pushData');
+// Route::get('fashionshop','App\Http\Controllers\frontend\TestController@pushData');
+
+Route::get('fashionshop',function(){
+    return view('shop.index');
+});
 

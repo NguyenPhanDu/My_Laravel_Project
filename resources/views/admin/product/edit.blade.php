@@ -24,9 +24,13 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
+            <strong>Hình ảnh</strong>
+            <div class="custom-file">
+                <input type="file" name="mainImage" onchange="loadFile(event)" id="mainImage" class="custom-file-input">
+                <label for="mainImage" class="custom-file-label">Choose File</label>
+            </div>
             <div class="form-group">
-                <strong>Hình ảnh:</strong>
-                <input type="text" name="mainImage" value="{{ $product->mainImage }}"class="form-control" placeholder="Hình ảnh">
+                <img src="{{asset('images/'.$product->mainImage)}}"  id="output" class="img-thumbnail">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

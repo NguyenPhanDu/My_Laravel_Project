@@ -26,7 +26,7 @@
     @foreach ($products as $item)
     <tr>
         <td>{{ $item->name }}</td>
-        <td>{{ $item->mainImage }}</td>
+        <td><img width="100vh" src="{{asset('images/'.$item->mainImage)}}" class="img-thumbnail" alt=""></td>
         <td>{{ $item->price }}</td>
         <td>{{ $item->categoryId }}</td>
         <td>{{ $item->description }}</td>

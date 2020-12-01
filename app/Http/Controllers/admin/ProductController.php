@@ -82,15 +82,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $request->validate([
+        $products=$request->validate([
             "name"=>"required",
-            "mainImage"=>"required",
             "price"=>"required",
             "description"=>"required",
             "categoryId"=>"required"
         ]);
-
-        $product->update($request->all());
+        $products['mainImage']=ImageUpload::upload($request);
+        $product->update($products);
         return redirect()->route('product.index');
     }
 

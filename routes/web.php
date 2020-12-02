@@ -25,7 +25,9 @@ Route::group(['prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], fu
 
 // Route::get('fashionshop','App\Http\Controllers\frontend\TestController@pushData');
 
-Route::get('fashionshop',function(){
-    return view('shop.index');
-});
+// Route::get('fashionshop',function(){
+//     return view('shop.index');
+// });
+
+Route::get('fashionshop','App\Http\Controllers\frontend\PassingDataController@index');
 

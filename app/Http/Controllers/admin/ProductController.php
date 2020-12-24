@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\CategoryGroup;
 use Illuminate\Http\Request;
 use App\Classes\ImageUpload;
+use Illuminate\Support\Facades\DB;
+
 class ProductController extends Controller
 {
     /**
@@ -16,7 +18,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::all();
+        $products=DB::table('products')
+                            ->join('categorygroups','products.categoryId','=','categorygroups.id')
+                            ->select('products.*','categorygroups.name as categoryName')
+                            ->get();
         return view('admin.product.index',compact('products'));
     }
 
@@ -43,7 +48,8 @@ class ProductController extends Controller
             "name"=>"required",
             "price"=>"required",
             "description"=>"required",
-            "categoryId"=>"required"
+            "categoryId"=>"required",
+            "content"=>"required"
         ]);
         $products['mainImage']=ImageUpload::upload($request);
         Product::create($products);
@@ -86,7 +92,8 @@ class ProductController extends Controller
             "name"=>"required",
             "price"=>"required",
             "description"=>"required",
-            "categoryId"=>"required"
+            "categoryId"=>"required",
+            "content"=>"required"
         ]);
         $products['mainImage']=ImageUpload::upload($request);
         $product->update($products);

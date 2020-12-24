@@ -12,3 +12,5 @@
     <script src="{!! asset('admin/js/sidebarmenu.js') !!}"></script>
     <!--Custom JavaScript -->
     <script src="{!! asset('admin/js/custom.js') !!}"></script>
+
+    <script>CKEDITOR.replace('contents')</script>

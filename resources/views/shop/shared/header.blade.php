@@ -12,11 +12,9 @@
 			<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
-					<li class="active"><a href="#">Women</a></li>
-					<li><a href="#">Men</a></li>
-					<li><a href="#">Kids</a></li>
-					<li><a href="#">Home Deco</a></li>
-					<li><a href="#">Contact</a></li>
+					@foreach($categories as $item)
+					<li><a href="#">{{$item->name}}</a></li>
+					@endforeach
 				</ul>
 			</nav>
 			<div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
@@ -28,9 +26,24 @@
 					</form>
 				</div>
 				<!-- User -->
-				<div class="user"><a href="#"><div><img src="{{asset('shop/images/user.svg')}}" alt="https://www.flaticon.com/authors/freepik"><div>1</div></div></a></div>
+				<div class="user">
+					<a href="{{route('listCart')}}">
+						<div>
+							<img src="{{asset('shop/images/cart.svg')}}" alt="https://www.flaticon.com/authors/freepik">
+							@if(Session::has("cart")!=null)
+							<div id="total-cart-quantity">
+								{{Session::get('cart')->totalQuantity}}
+							</div>
+							@else
+							<div id="total-cart-quantity">
+								0
+							</div>
+							@endif
+						</div>
+					</a>
+				</div>
 				<!-- Cart -->
-				<div class="cart"><a href="cart.html"><div><img class="svg" src="{{asset('shop/images/cart.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
+				<div class="cart" id="chang-item-card"><a href="#"><div><img class="svg" src="{{asset('shop/images/user.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
 				<!-- Phone -->
 				<div class="header_phone d-flex flex-row align-items-center justify-content-start">
 					<div><div><img src="{{asset('shop/images/phone.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></div>

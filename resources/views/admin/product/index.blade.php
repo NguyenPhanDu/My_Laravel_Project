@@ -28,7 +28,7 @@
         <td>{{ $item->name }}</td>
         <td><img width="100vh" src="{{asset('images/'.$item->mainImage)}}" class="img-thumbnail" alt=""></td>
         <td>{{ $item->price }}</td>
-        <td>{{ $item->categoryId }}</td>
+        <td>{{ $item->categoryName }}</td>
         <td>{{ $item->description }}</td>
         <td>
             <form action="{{route('product.destroy',$item->id)}}" method="POST">

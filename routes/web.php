@@ -13,19 +13,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::group(['namespace' => 'App\Http\Controllers'], function() {
+	Route::get('login','LoginController@getLogin')->name('getLogin');
+	Route::post('login','LoginController@postLogin')->name('postLogin');
+	Route::get('logout','LoginController@getLogout')->name('getLogout');
+});
 
-
-Route::group(['prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], function () {
+Route::group(['middleware' => 'CheckAdminLogin','prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], function () {
     Route::get('/', function () {
         return view('admin.index');
-    });
+    })->name('admin_index');
     Route::resource('catgroup', CategoryGroupController::class);
     Route::resource('product', ProductController::class);
 });
 
-// Route::get('fashionshop','App\Http\Controllers\frontend\TestController@pushData');
-
-Route::get('fashionshop',function(){
-    return view('shop.index');
+Route::group(['prefix' => "fashionshop" ,'namespace' => 'App\Http\Controllers\frontend'],function(){
+    Route::get('/','IndexController@index')->name('index-shop');
+    Route::get('product/{id}',"IndexController@product")->name('product');
 });
 
+Route::get('fashionshop/AddCart/{id}','App\Http\Controllers\user\CartController@addCart')->name('addCart');
+Route::get('fashionshop/ListCart','App\Http\Controllers\user\CartController@viewListCart')->name('listCart');
+Route::get('fashionshop/ListCart/DeleteListCartItem/{id}','App\Http\Controllers\user\CartController@deleteListCartItem')->name('deleteListCartItem');

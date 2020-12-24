@@ -56,6 +56,12 @@
                 <input type="text" name="description" value="{{ $product->description }}" class="form-control" placeholder="Mô tả">
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea class="form-control" name="content"  id="contents"></textarea>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Xác nhận</button>
         </div>

@@ -23,4 +23,11 @@ class IndexController extends Controller
         $categories=DB::table('categorygroups')->get();
         return view('shop.product',compact('categories','product'));
     }
+
+    public function listProductCategory($id){
+        $categories=DB::table('categorygroups')->get();
+        $categoryName=DB::table('categorygroups')->where('id',$id)->get();
+        $products=DB::table('products')->where('categoryId',$id)->get();
+        return view('shop.category',compact('categories','products','categoryName'));
+    }
 }

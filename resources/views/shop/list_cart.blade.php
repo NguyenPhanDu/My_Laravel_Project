@@ -14,7 +14,7 @@
 					<div class="breadcrumbs d-flex flex-column align-items-center justify-content-center">
 						<ul class="d-flex flex-row align-items-start justify-content-start text-center">
 							<li><a href="{{route('index-shop')}}">Home</a></li>
-							<li>Your Cart</li>
+							<li id="cc">Your Cart</li>
 						</ul>
 					</div>
 				</div>
@@ -35,7 +35,8 @@
 									<li class="mr-auto">Product</li>
 									<li>Price</li>
 									<li>Quantity</li>
-                                    <li>Total</li>
+									<li>Total</li>
+									<li>Save</li>
                                     <li>Delete</li>
 								</ul>
 							</div>
@@ -56,19 +57,21 @@
                                             </div>
                                             <div class="product_name_container">
                                                 <div class="product_name"><a href="product.html">{{$item['productInfo']->name}}</a></div>
-                                                <div class="product_text">{{$item['productInfo']->description}}</div>
+												<input hidden id="item-cart-id" type="text" value="{{$item['productInfo']->id}}">
+                                                <div class="product_text" id="#ccc-{{$item['productInfo']->id}}">{{$item['productInfo']->description}}</div>
                                             </div>
                                         </div>
                                         <div class="product_price product_text"><span>Price: </span>{{number_format($item['productInfo']->price)}}đ</div>
                                         <div class="product_quantity_container">
-                                            <div class="product_quantity ml-lg-auto mr-lg-auto text-center">
-                                                <span class="product_text product_num">{{$item['quantity']}}</span>
-                                                <div class="qty_sub qty_button trans_200 text-center"><span>-</span></div>
-                                                <div class="qty_add qty_button trans_200 text-center"><span>+</span></div>
-                                            </div>
+										<div class="product_quantity ml-lg-auto mr-lg-auto text-center">
+											<span data-quantity="{{$item['quantity']}}" id="quantity-item-{{$item['productInfo']->id}}" class="product_text product_num">{{$item['quantity']}}</span>
+											<div class="qty_sub qty_button trans_200 text-center"><span>-</span></div>
+											<div class="qty_add qty_button trans_200 text-center"><span>+</span></div>
+                    					</div>
                                         </div>
-                                        <div class="product_total product_text"><span>Total: </span>{{number_format($item['price'])}}đ</div>
-                                        <div><a href="javascript:" onclick="deleteListCartItem({{$item['productInfo']->id}})">delete</a></div>
+										<div class="product_total product_text"><span>Total: </span>{{number_format($item['price'])}}đ</div>
+										<div><button class="du-btn" name="btn-save" value="{{$item['productInfo']->id}}">Save</button></div>
+										<div><button class="du-btn" name="btn-delete" value="{{$item['productInfo']->id}}">Delete</button></div>
                                     </li>
                                 </ul>
                                 @endforeach
@@ -78,7 +81,7 @@
 							<!-- Cart Buttons -->
 							<div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
 								<div class="cart_buttons_inner ml-sm-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
-									<div class="button button_clear trans_200"><a href="categories.html">clear cart</a></div>
+									<div class="button button_clear trans_200" id="clear-cart"><a href="javascript:">clear cart</a></div>
 									<div class="button button_continue trans_200"><a href="categories.html">continue shopping</a></div>
 								</div>
 							</div>
@@ -118,14 +121,42 @@
 @section('script')
 <script src="{!! asset('shop/js/cart.js')!!}"></script>
 <script>
-    function deleteListCartItem(id){
-        console.log(id);
-        $.ajax({
-            url: 'fashionshop/ListCart/DeleteListCartItem/'+id,
-            type: 'GET',
-        }).done(function(respone){
+	$('button[name=btn-delete]').click(function () {
+            let id = this.value;
+            console.log(id);
+			$.ajax({
+				url: '../fashionshop/DeleteListCartItem/'+id,
+				type: 'GET'
+			}).done(function(respone){
+				console.log(respone);
+				location.reload();
+				alertify.error('Delete product to Cart sucess');
+			});
+    });
 
-        });
-    }
+	$('button[name=btn-save]').click(function () {
+            let id = this.value;
+			let quantity=document.querySelector('#quantity-item-'+id).innerText;
+            console.log(quantity);
+
+			$.ajax({
+				url: '../fashionshop/SaveListCartItem/'+id+'/'+quantity,
+				type: 'GET',
+			}).done(function(response){
+				alertify.notify('Update Cart Sussces', 'success', 5, function(){  console.log('dismissed'); });
+				setTimeout(function(){
+   					location.reload();
+				}, 1000);
+			});
+    });
+
+	$('#clear-cart').click(function(){
+		$.ajax({
+			url: '../fashionshop/ClearCart',
+			type: 'GET',
+		}).done(function(response){
+			location.reload();
+		});
+	})
 </script>
 @endsection

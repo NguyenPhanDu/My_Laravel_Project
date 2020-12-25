@@ -30,8 +30,12 @@ Route::group(['middleware' => 'CheckAdminLogin','prefix' => "Ad" ,'namespace' =>
 Route::group(['prefix' => "fashionshop" ,'namespace' => 'App\Http\Controllers\frontend'],function(){
     Route::get('/','IndexController@index')->name('index-shop');
     Route::get('product/{id}',"IndexController@product")->name('product');
+    Route::get('Category/{id}','IndexController@listProductCategory')->name('category');
 });
 
 Route::get('fashionshop/AddCart/{id}','App\Http\Controllers\user\CartController@addCart')->name('addCart');
 Route::get('fashionshop/ListCart','App\Http\Controllers\user\CartController@viewListCart')->name('listCart');
-Route::get('fashionshop/ListCart/DeleteListCartItem/{id}','App\Http\Controllers\user\CartController@deleteListCartItem')->name('deleteListCartItem');
+Route::get('fashionshop/DeleteListCartItem/{id}','App\Http\Controllers\user\CartController@deleteListCartItem')->name('deleteListCartItem');
+Route::get('fashionshop/SaveListCartItem/{id}/{quatity}','App\Http\Controllers\user\CartController@saveListCartItem')->name('saveListCartItem');
+Route::get('fashionshop/ClearCart','App\Http\Controllers\user\CartController@clearCart')->name('clearCart');
+

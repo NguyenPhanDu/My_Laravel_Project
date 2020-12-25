@@ -1565,3 +1565,21 @@ section
 	color: #969696;
 	font-weight: 300;
 }
+
+.du-btn{
+	border: 1px solid #2fce98;
+	background: none;
+	padding: 5px 10px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #2fce98;
+	cursor: pointer;
+	transition: 0.6s;
+	overflow: hidden;
+}
+
+.du-btn:hover{
+	background:#2fce98 ;
+	color: #ffff;
+}
+

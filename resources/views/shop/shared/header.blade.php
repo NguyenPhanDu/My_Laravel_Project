@@ -2,10 +2,10 @@
 		<div class="header_overlay"></div>
 		<div class="header_content d-flex flex-row align-items-center justify-content-start">
 			<div class="logo">
-				<a href="#">
+				<a href="{{route('index-shop')}}">
 					<div class="d-flex flex-row align-items-center justify-content-start">
-						<div><img src="{{asset('shop/images/logo_1.png')}}" alt=""></div>
-						<div>Little Closet</div>
+							<div><img src="{{asset('shop/images/logo_1.png')}}" alt=""></div>
+							<div>Little Closet</div>
 					</div>
 				</a>	
 			</div>
@@ -13,7 +13,7 @@
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					@foreach($categories as $item)
-					<li><a href="#">{{$item->name}}</a></li>
+					<li><a href="{{route('category',$item->id)}}">{{$item->name}}</a></li>
 					@endforeach
 				</ul>
 			</nav>

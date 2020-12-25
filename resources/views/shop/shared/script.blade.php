@@ -45,7 +45,7 @@
     function addCart(id){
         console.log(id);
         $.ajax({
-            url: 'fashionshop/AddCart/'+id,
+            url: '../fashionshop/AddCart/'+id,
             type: 'GET',
         }).done(function(respone){
             console.log(respone);

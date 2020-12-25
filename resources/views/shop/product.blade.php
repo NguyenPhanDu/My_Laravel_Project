@@ -91,7 +91,7 @@
 							</div>
 							<div class="product_text">
 							<div>{!! $item->content !!}</div>
-								
+							<input hidden id="detail-product-id" type="text" value="{{$item->id}}">
 							</div>
 							<div class="product_buttons">
 								<div class="text-right d-flex flex-row align-items-start justify-content-start">
@@ -100,7 +100,7 @@
 									</div>
 									<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
 										<div>
-											<div><img src="{{ asset('shop/images/cart.svg')}}" class="svg" alt=""><div>+</div></div>
+											<div id="add-Cart"><img src="{{ asset('shop/images/cart.svg')}}" class="svg" alt=""><div>+</div></div>
 										</div>
 									</div>
 								</div>
@@ -117,4 +117,20 @@
 @section('script')
 <script src="{!! asset('shop/plugins/flexslider/jquery.flexslider-min.js')!!}"></script>
 <script src="{!! asset('shop/js/product.js')!!}"></script>
+
+<script>
+	$("#add-Cart").click(function(){
+		let id=document.querySelector('#detail-product-id').value;
+		console.log(id);
+		$.ajax({
+            url: '../AddCart/'+id,
+            type: 'GET',
+        }).done(function(respone){
+            console.log(respone);
+            $("#total-cart-quantity").empty();
+            $("#total-cart-quantity").html(respone);
+            alertify.success('Add product to Cart sucess');
+        });
+	});
+</script>
 @endsection

@@ -34,6 +34,7 @@ class CartController extends Controller
     }
 
     public function deleteListCartItem(Request $request, $id){
+        $categories=DB::table('categorygroups')->get();
         if(Session('cart')!=null){
             $presentCart = Session('cart');
         }
@@ -48,6 +49,33 @@ class CartController extends Controller
         else{
             $request->Session()->forget('cart');
         }
-        return view('shop.list_cart_item');
+        return view('shop.list_cart_item',compact('categories'));
+    }
+
+    public function saveListCartItem(Request $request, $id, $quantity){
+        $categories=DB::table('categorygroups')->get();
+        if(Session('cart')!=null){
+            $presentCart = Session('cart');
+        }
+        else{
+            $presentCart = null;
+        }
+        $newCart=new Cart($presentCart);
+        $newCart->updateCart($id, $quantity);
+        $request->Session()->put('cart',$newCart);
+        return view('shop.list_cart_item',compact('categories'));
+    }
+
+    public function clearCart(Request $request){
+        $categories=DB::table('categorygroups')->get();
+        if(Session('cart')!=null){
+            $presentCart = Session('cart');
+        }
+        else{
+            $presentCart = null;
+        }
+
+        $request->Session()->forget('cart');
+        return view('shop.list_cart',compact('categories'));
     }
 }

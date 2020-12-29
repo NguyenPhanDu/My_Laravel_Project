@@ -1,5 +1,11 @@
 @extends('shop.shared.layout')
 @section('content')
+
+@section('css')
+<link rel="stylesheet" type="text/css" href="{!! asset('shop/styles/checkout.css')!!}">
+<link rel="stylesheet" type="text/css" href="{!! asset('shop/styles/checkout_responsive.css')!!}">
+@endsection
+
 <!-- Home -->
 
 <div class="home">
@@ -8,7 +14,7 @@
 					<div class="home_title">Checkout</div>
 					<div class="breadcrumbs d-flex flex-column align-items-center justify-content-center">
 						<ul class="d-flex flex-row align-items-start justify-content-start text-center">
-							<li><a href="#">Home</a></li>
+							<li><a href="{{route('index-shop')}}">Home</a></li>
 							<li>Checkout</li>
 						</ul>
 					</div>
@@ -118,7 +124,7 @@
 							</div>
 						</div>
 					</div>
-
+					@if(Session::has("cart")!=null)
 					<!-- Cart Total -->
 					<div class="col-lg-6 cart_col">
 						<div class="cart_total">
@@ -127,7 +133,7 @@
 								<ul class="cart_extra_total_list">
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Subtotal</div>
-										<div class="cart_extra_total_value ml-auto">$29.90</div>
+										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}}đ</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Shipping</div>
@@ -135,7 +141,7 @@
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Total</div>
-										<div class="cart_extra_total_value ml-auto">$29.90</div>
+										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}}đ</div>
 									</li>
 								</ul>
 								<div class="payment_options">
@@ -164,14 +170,16 @@
 										</li>
 									</ul>
 								</div>
-								<div class="cart_text">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</p>
-								</div>
-								<div class="checkout_button trans_200"><a href="checkout.html">place order</a></div>
+								<div class="checkout_button trans_200"><a href="#">place order</a></div>
 							</div>
 						</div>
 					</div>
+					@endif
 				</div>
 			</div>
 		</div>
 @endsection
+
+@section('script')
+<script src="{!! asset('shop/js/checkout.js') !!}"></script>
+@endsecsion

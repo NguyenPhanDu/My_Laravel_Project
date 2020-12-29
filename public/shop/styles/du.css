@@ -1,0 +1,100 @@
+.header__user{
+    position: absolute;
+    top: 50px;
+    width: 240px;
+    background-color: #ffff;
+    right: 4px;
+    border: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    animation: headerUser ease-in 0.2s;
+    transform-origin: calc(100% - 10px) top;
+    display: none;
+}
+
+@keyframes headerUser{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.header__user::after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -30px;
+    width: 40px;
+    height: 40px;
+}
+
+.header__user-header{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.header__user-header p{
+    cursor: default;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.header__user-username{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+.header__user-username a{
+    text-decoration: none;
+    cursor: default;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+    color: #168560;
+}
+
+.header__user-btn-signin{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    
+}
+.header__user-btn-signin a{
+    line-height: 40px;
+    background-color: #2fce98;
+    border-radius: 2px;
+    color: #ffff;
+    padding: 0px 80px;
+    font-weight: bold;
+    border: 1px solid #2fce98 ;
+}
+
+.header__user-btn-logout{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header__user-btn-logout a{
+    line-height: 40px;
+    background-color: #ffff;
+    border-radius: 2px;
+    color: #2fce98;
+    padding: 0px 78px;
+    font-weight: bold;
+    border: 1px solid #2fce98;
+}
+
+.header__user--auth:hover .header__user{
+    display: block;
+}

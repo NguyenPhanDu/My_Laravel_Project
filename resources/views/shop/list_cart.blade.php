@@ -82,7 +82,7 @@
 							<div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
 								<div class="cart_buttons_inner ml-sm-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
 									<div class="button button_clear trans_200" id="clear-cart"><a href="javascript:">clear cart</a></div>
-									<div class="button button_continue trans_200"><a href="categories.html">continue shopping</a></div>
+									<div class="button button_continue trans_200"><a href="{{route('index-shop')}}">continue shopping</a></div>
 								</div>
 							</div>
 						</div>
@@ -108,7 +108,7 @@
 										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}}đ</div>
 									</li>
 								</ul>
-								<div class="checkout_button trans_200"><a href="checkout.html">proceed to checkout</a></div>
+								<div class="checkout_button trans_200"><a href="{{route('checkOut')}}">proceed to checkout</a></div>
 							</div>
 						</div>
 					</div>

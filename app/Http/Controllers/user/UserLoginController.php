@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-class LoginController extends Controller
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+class UserLoginController extends Controller
 {
     public function __construct(){
 
     }
 
     public function getLogin(){
-        return view('authentication/login');
+        return view('shop.login');
     }
 
     public function postLogin(Request $request){
@@ -23,19 +26,18 @@ class LoginController extends Controller
                 'password'=>$request->txtPassword
             ];
             if(Auth::attempt($login)){
-                $request->session()->flash('login','Login success!');
-                $request->session()->put('userAdmin',Auth::User()->username);
-                return redirect()->route('admin_index');
+                $request->session()->put('userLogin',Auth::User()->username);
+                return redirect()->route('index-shop');
             }
             else {
             return redirect()->back()->with('status', 'Email hoặc Password không chính xác');
             }
-
     }
 
-    public function getLogout()
+    public function getLogout(Request $request)
     {
+        $request->Session()->forget('userLogin');
         Auth::logout();
-        return view('authentication.login');
+        return redirect()->back();
     }
 }

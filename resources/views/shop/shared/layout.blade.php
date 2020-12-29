@@ -18,7 +18,6 @@
 
 	<div class="super_container_inner">
 		<div class="super_overlay"></div>
-
 		@yield('content')
 
 		<!-- Footer -->

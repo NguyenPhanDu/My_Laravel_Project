@@ -26,6 +26,8 @@
 <!-- <link rel="stylesheet" type="text/css" href="styles/responsive.css"> -->
 <link rel="stylesheet" type="text/css" href="{!! asset('shop/styles/responsive.css')!!}">
 
+<link rel="stylesheet" type="text/css" href="{!! asset('shop/styles/du.css')!!}">
+
 
 <!-- CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>

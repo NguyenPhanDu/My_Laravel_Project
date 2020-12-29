@@ -30,4 +30,14 @@ class IndexController extends Controller
         $products=DB::table('products')->where('categoryId',$id)->get();
         return view('shop.category',compact('categories','products','categoryName'));
     }
+
+    public function checkOut(Request $request){
+        $categories=DB::table('categorygroups')->get();
+        if(Session::has('userLogin')){
+            return view('shop.checkout',compact('categories'));
+        }
+        else{ 
+            return redirect()->route('userGetLogin');
+        }
+    }
 }

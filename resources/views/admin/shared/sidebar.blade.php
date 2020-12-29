@@ -16,6 +16,10 @@
                             href="{{route('product.index') }}" aria-expanded="false">
                                 <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Sản phẩm</span></a>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{route('user.index') }}" aria-expanded="false">
+                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Tài khoản</span></a>
+                        </li>
                     </ul>
 
                 </nav>

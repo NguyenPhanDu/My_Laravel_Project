@@ -3,6 +3,7 @@
     @if(Session::has('login'))
         <div class="alert alert-success">
             {{ Session::get('login') }}
+            {{Session::get('userAdmin') }}
         </div>
     @endif	   
     <h1>Index</h1>

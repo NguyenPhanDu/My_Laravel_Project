@@ -25,7 +25,7 @@
 						<button class="header_search_button"><img src="{{asset('shop/images/search.png')}}" alt=""></button>
 					</form>
 				</div>
-				<!-- User -->
+				<!-- Cart -->
 				<div class="user">
 					<a href="{{route('listCart')}}">
 						<div>
@@ -42,12 +42,36 @@
 						</div>
 					</a>
 				</div>
-				<!-- Cart -->
-				<div class="cart" id="chang-item-card"><a href="#"><div><img class="svg" src="{{asset('shop/images/user.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
+				<!-- User -->
+				<div class="cart header__user--auth" id="chang-item-card" >
+					<a href="#">
+						<div>
+							<img class="svg" src="{{asset('shop/images/user.svg')}}" alt="https://www.flaticon.com/authors/freepik">
+						</div>
+					</a>
+					<div class="header__user">
+						@if(Session::has('userLogin'))
+						<header class="header__user-header">
+							<p>User</p>
+						</header>
+						<div class="header__user-username">
+							<a href="#">{{Session::get('userLogin')}}</a>
+						</div>
+						
+						<div class="header__user-btn-logout">
+							<a href="{{route('userLogout')}}">Log out</a>
+						</div>
+						@else
+						<div class="header__user-btn-signin">
+							<a href="{{route('userGetLogin')}}" >Sign In</a>
+						</div>
+						@endif
+					</div>
+				</div>
 				<!-- Phone -->
 				<div class="header_phone d-flex flex-row align-items-center justify-content-start">
 					<div><div><img src="{{asset('shop/images/phone.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></div>
-					<div>+1 912-252-7350</div>
+					<div>0336685195</div>
 				</div>
 			</div>
 		</div>

@@ -15,7 +15,7 @@
 									</a>		
 								</div>
 								<div class="footer_about_text">
-									<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Fusce venenatis vel velit vel euismod.</p>
+									<p>Chủ sở hữu: Nguyễn Phan Du MSSV: 0306181298</p>
 								</div>
 							</div>
 						</div>
@@ -76,15 +76,6 @@
 								<div class="copyright order-md-1 order-2"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>. Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-								<nav class="footer_nav ml-md-auto order-md-2 order-1">
-									<ul class="d-flex flex-row align-items-center justify-content-start">
-										<li><a href="category.html">Women</a></li>
-										<li><a href="category.html">Men</a></li>
-										<li><a href="category.html">Kids</a></li>
-										<li><a href="category.html">Home Deco</a></li>
-										<li><a href="#">Contact</a></li>
-									</ul>
-								</nav>
 							</div>
 						</div>
 					</div>

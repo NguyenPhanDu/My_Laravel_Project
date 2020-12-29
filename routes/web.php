@@ -19,18 +19,31 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
 	Route::get('logout','LoginController@getLogout')->name('getLogout');
 });
 
+Route::group(['prefix' => "fashionshop",'namespace' => 'App\Http\Controllers\user'], function() {
+	Route::get('login','UserLoginController@getLogin')->name('userGetLogin');
+	Route::post('login','UserLoginController@postLogin')->name('userPostLogin');
+	Route::get('logout','UserLoginController@getLogout')->name('userLogout');
+});
+
+Route::group(['prefix' => "fashionshop",'namespace' => 'App\Http\Controllers\user'], function() {
+	Route::get('register','UserRegisterController@getRegister')->name('userGetRegister');
+	Route::post('register','UserRegisterController@postRegister')->name('userPostRegister');
+});
+
 Route::group(['middleware' => 'CheckAdminLogin','prefix' => "Ad" ,'namespace' => 'App\Http\Controllers\admin'], function () {
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin_index');
     Route::resource('catgroup', CategoryGroupController::class);
     Route::resource('product', ProductController::class);
+    Route::resource('user',UserController::class);
 });
 
 Route::group(['prefix' => "fashionshop" ,'namespace' => 'App\Http\Controllers\frontend'],function(){
     Route::get('/','IndexController@index')->name('index-shop');
     Route::get('product/{id}',"IndexController@product")->name('product');
     Route::get('Category/{id}','IndexController@listProductCategory')->name('category');
+    Route::get('checkout','IndexController@checkOut')->name('checkOut');
 });
 
 Route::get('fashionshop/AddCart/{id}','App\Http\Controllers\user\CartController@addCart')->name('addCart');
@@ -39,3 +52,4 @@ Route::get('fashionshop/DeleteListCartItem/{id}','App\Http\Controllers\user\Cart
 Route::get('fashionshop/SaveListCartItem/{id}/{quatity}','App\Http\Controllers\user\CartController@saveListCartItem')->name('saveListCartItem');
 Route::get('fashionshop/ClearCart','App\Http\Controllers\user\CartController@clearCart')->name('clearCart');
 
+Route::get('/','App\Http\Controllers\frontend\IndexController@index')->name('index-shop');

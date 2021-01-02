@@ -37,6 +37,8 @@ Route::group(['middleware' => 'CheckAdminLogin','prefix' => "Ad" ,'namespace' =>
     Route::resource('catgroup', CategoryGroupController::class);
     Route::resource('product', ProductController::class);
     Route::resource('user',UserController::class);
+    Route::resource('bill',BillController::class);
+    
 });
 
 Route::group(['prefix' => "fashionshop" ,'namespace' => 'App\Http\Controllers\frontend'],function(){
@@ -51,5 +53,12 @@ Route::get('fashionshop/ListCart','App\Http\Controllers\user\CartController@view
 Route::get('fashionshop/DeleteListCartItem/{id}','App\Http\Controllers\user\CartController@deleteListCartItem')->name('deleteListCartItem');
 Route::get('fashionshop/SaveListCartItem/{id}/{quatity}','App\Http\Controllers\user\CartController@saveListCartItem')->name('saveListCartItem');
 Route::get('fashionshop/ClearCart','App\Http\Controllers\user\CartController@clearCart')->name('clearCart');
+Route::post('fashionshop/checkout','App\Http\Controllers\user\CartController@postCheckout')->name('postCheckOut');
 
 Route::get('/','App\Http\Controllers\frontend\IndexController@index')->name('index-shop');
+
+
+//Bill
+Route::get('fashionshop/Bill/{id}','App\Http\Controllers\user\BillController@showBill')->name('showBill');
+Route::get('fashionshop/Bill/Detail/{id}','App\Http\Controllers\user\BillController@billDetail')->name('billDetail');
+Route::get('fashionshop/Bill/Cancel/{id}','App\Http\Controllers\user\BillController@userCancelBill')->name('userCancelBill');

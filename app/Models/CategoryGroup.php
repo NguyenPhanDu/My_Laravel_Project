@@ -11,6 +11,7 @@ class CategoryGroup extends Model
 
     protected $table='categorygroups';
     protected $fillable = [
-        'name'
+        'name',
+        'status'
     ];
 }

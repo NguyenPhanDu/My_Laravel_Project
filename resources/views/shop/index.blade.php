@@ -287,7 +287,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 offset-lg-3">
-						<div class="section_title text-center">New Arrivals</div>
+						<div class="section_title text-center">Sản phẩm mới</div>
 					</div>
 				</div>
 				
@@ -302,12 +302,12 @@
 									<div>
 										<div>
 											<div class="product_name"><a href="{{route('product',$item->id)}}">{{ $item->name }}</a></div>
-											<div class="product_category">In <a href="{{route('category',$item->categoryId)}}">Category</a></div>
+											<div class="product_category"><a href="{{route('category',$item->categoryId)}}">Xem trong danh mục</a></div>
 										</div>
 									</div>
 									<div class="ml-auto text-right">
 										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">{{number_format($item->price)}}đ</div>
+										<div class="product_price text-right">{{number_format($item->price)}}VNĐ</div>
 									</div>
 								</div>
 								<div class="product_buttons">

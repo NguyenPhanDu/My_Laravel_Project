@@ -25,7 +25,6 @@
         <td>
             <form action="{{route('user.destroy',$item->id)}}" method="POST">
                 <a class="btn btn-primary" href="{{route('user.edit',$item->id)}}">Edit</a>
-                <a class="btn btn-warning" href="#">Block</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>

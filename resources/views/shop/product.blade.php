@@ -10,11 +10,10 @@
 		<div class="home">
 			<div class="home_container d-flex flex-column align-items-center justify-content-end">
 				<div class="home_content text-center">
-					<div class="home_title">Product Page</div>
+					<div class="home_title">Sản phẩm</div>
 					<div class="breadcrumbs d-flex flex-column align-items-center justify-content-center">
 						<ul class="d-flex flex-row align-items-start justify-content-start text-center">
-							<li><a href="{{route('index-shop')}}">Home</a></li>
-							<li>New Products</li>
+							<li><a href="{{route('index-shop')}}">Trang chủ</a></li>
 						</ul>
 					</div>
 				</div>
@@ -54,8 +53,8 @@
 					<div class="col-lg-6 product_col">
 						<div class="product_info">
 							<div class="product_name">{{$item->name}}</div>
-							<div class="product_category">In <a href="category.html">Category</a></div>
-							<div class="product_price">{{number_format($item->price)}} Đ</div>
+							<div class="product_category"><a href="{{route('category',$item->categoryId)}}">Xem trong danh mục</a></div>
+							<div class="product_price">{{number_format($item->price)}} VNĐ</div>
 							<div class="product_size">
 								<div class="product_size_title">Select Size</div>
 								<ul class="d-flex flex-row align-items-start justify-content-start">

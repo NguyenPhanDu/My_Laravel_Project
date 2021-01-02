@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-        <a class="btn btn-success" href="{{route('product.create')}}"> Tạo sản phẩm mới </a>
+        <a class="btn btn-success" href="{{route('product.create')}}">Tạo sản phẩm mới </a>
         </div>
     </div>
 </div>
@@ -32,8 +32,7 @@
         <td>{{ $item->description }}</td>
         <td>
             <form action="{{route('product.destroy',$item->id)}}" method="POST">
-                <a class="btn btn-info" href="">Show</a>
-
+                
                 <a class="btn btn-primary" href="{{route('product.edit',$item->id)}}">Edit</a>
 
                 @csrf

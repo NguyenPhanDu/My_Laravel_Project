@@ -26,7 +26,7 @@ class UserLoginController extends Controller
                 'password'=>$request->txtPassword
             ];
             if(Auth::attempt($login)){
-                $request->session()->put('userLogin',Auth::User()->username);
+                $request->session()->put('userLogin',Auth::User());
                 return redirect()->route('index-shop');
             }
             else {

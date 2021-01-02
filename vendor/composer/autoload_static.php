@@ -502,6 +502,7 @@ class ComposerStaticInit48aaeb376d42d2a59810c59263798b54
     );
 
     public static $classMap = array (
+        'App\\Classes\\Cart' => __DIR__ . '/../..' . '/app/Classes/Cart.php',
         'App\\Classes\\ImageUpload' => __DIR__ . '/../..' . '/app/Classes/ImageUpload.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -509,9 +510,14 @@ class ComposerStaticInit48aaeb376d42d2a59810c59263798b54
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\admin\\CategoryGroupController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/CategoryGroupController.php',
         'App\\Http\\Controllers\\admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/ProductController.php',
+        'App\\Http\\Controllers\\admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/UserController.php',
         'App\\Http\\Controllers\\frontend\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/IndexController.php',
+        'App\\Http\\Controllers\\user\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/CartController.php',
+        'App\\Http\\Controllers\\user\\UserLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/UserLoginController.php',
+        'App\\Http\\Controllers\\user\\UserRegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/UserRegisterController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\CheckAdminLogin' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckAdminLogin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -521,6 +527,7 @@ class ComposerStaticInit48aaeb376d42d2a59810c59263798b54
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\CategoryGroup' => __DIR__ . '/../..' . '/app/Models/CategoryGroup.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

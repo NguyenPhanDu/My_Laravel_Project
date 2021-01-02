@@ -17,6 +17,7 @@ class CreateCategoryGroupsTable extends Migration
             $table->engine = "InnoDB";
             $table->Increments('id')->unsigned();
             $table->string('name');
+            $table->integer('status');
             $table->timestamps();
         });
     }

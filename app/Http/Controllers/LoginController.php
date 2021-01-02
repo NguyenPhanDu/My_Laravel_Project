@@ -24,7 +24,7 @@ class LoginController extends Controller
             ];
             if(Auth::attempt($login)){
                 $request->session()->flash('login','Login success!');
-                $request->session()->put('userAdmin',Auth::User()->username);
+                $request->session()->put('userAdmin',Auth::User());
                 return redirect()->route('admin_index');
             }
             else {
@@ -33,8 +33,9 @@ class LoginController extends Controller
 
     }
 
-    public function getLogout()
+    public function getLogout(Request $request)
     {
+        $request->Session()->forget('userAdmin');
         Auth::logout();
         return view('authentication.login');
     }

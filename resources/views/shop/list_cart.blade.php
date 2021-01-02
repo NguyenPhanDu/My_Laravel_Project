@@ -10,11 +10,10 @@
 		<div class="home">
 			<div class="home_container d-flex flex-column align-items-center justify-content-end">
 				<div class="home_content text-center">
-					<div class="home_title">Shopping Cart</div>
+					<div class="home_title">Giỏ hàng</div>
 					<div class="breadcrumbs d-flex flex-column align-items-center justify-content-center">
 						<ul class="d-flex flex-row align-items-start justify-content-start text-center">
-							<li><a href="{{route('index-shop')}}">Home</a></li>
-							<li id="cc">Your Cart</li>
+							<li><a href="{{route('index-shop')}}">Trang chủ</a></li>
 						</ul>
 					</div>
 				</div>
@@ -32,12 +31,12 @@
 							<!-- Cart Bar -->
 							<div class="cart_bar">
 								<ul class="cart_bar_list item_list d-flex flex-row align-items-center justify-content-end">
-									<li class="mr-auto">Product</li>
-									<li>Price</li>
-									<li>Quantity</li>
-									<li>Total</li>
-									<li>Save</li>
-                                    <li>Delete</li>
+									<li class="mr-auto">Sản phẩm</li>
+									<li>Đơn giá</li>
+									<li>Số lượng</li>
+									<li>Tổng tiền</li>
+									<li>Cập nhật sô lượng</li>
+                                    <li>Xóa</li>
 								</ul>
 							</div>
 
@@ -81,8 +80,8 @@
 							<!-- Cart Buttons -->
 							<div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
 								<div class="cart_buttons_inner ml-sm-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
-									<div class="button button_clear trans_200" id="clear-cart"><a href="javascript:">clear cart</a></div>
-									<div class="button button_continue trans_200"><a href="{{route('index-shop')}}">continue shopping</a></div>
+									<div class="button button_clear trans_200" id="clear-cart"><a href="javascript:">Xóa</a></div>
+									<div class="button button_continue trans_200"><a href="{{route('index-shop')}}">Tiếp tục mua hàng</a></div>
 								</div>
 							</div>
 						</div>
@@ -93,22 +92,22 @@
 					<div class="col-lg-6 cart_extra_col">
 						<div class="cart_extra cart_extra_2">
 							<div class="cart_extra_content cart_extra_total">
-								<div class="cart_extra_title">Cart Total</div>
+								<div class="cart_extra_title">Thông tin giỏ hàng</div>
 								<ul class="cart_extra_total_list">
 									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="cart_extra_total_title">Subtotal</div>
-										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}}đ</div>
+										<div class="cart_extra_total_title">Tổng tiền sản phẩm</div>
+										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}} VNĐ</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="cart_extra_total_title">Shipping</div>
-										<div class="cart_extra_total_value ml-auto">Free</div>
+										<div class="cart_extra_total_title">Chi phí giao hàng</div>
+										<div class="cart_extra_total_value ml-auto">Miễn phí</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="cart_extra_total_title">Total</div>
-										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}}đ</div>
+										<div class="cart_extra_total_title">Tổng tiền giỏ hàng</div>
+										<div class="cart_extra_total_value ml-auto">{{number_format(Session::get('cart')->totalPrice)}} VNĐ</div>
 									</li>
 								</ul>
-								<div class="checkout_button trans_200"><a href="{{route('checkOut')}}">proceed to checkout</a></div>
+								<div class="checkout_button trans_200"><a href="{{route('checkOut')}}">Đi đến đặt hàng</a></div>
 							</div>
 						</div>
 					</div>

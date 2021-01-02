@@ -23,7 +23,7 @@
 									<div>
 										<div>
 											<div class="product_name"><a href="{{route('product',$item->id)}}">{{ $item->name }}</a></div>
-											<div class="product_category">In <a href="category.html">Category</a></div>
+											<div class="product_category"><a href="{{route('category',$item->categoryId)}}">Xem trong danh mục</a></div>
 										</div>
 									</div>
 									<div class="ml-auto text-right">

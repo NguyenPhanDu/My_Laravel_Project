@@ -10,15 +10,19 @@
                                     class="hide-menu">Trang chủ</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{{route('catgroup.index') }}" aria-expanded="false">
-                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Danh mục</span></a>
+                                <span class="hide-menu">Danh mục</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{{route('product.index') }}" aria-expanded="false">
-                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Sản phẩm</span></a>
+                                </i><span class="hide-menu">Sản phẩm</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{{route('user.index') }}" aria-expanded="false">
-                                <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Tài khoản</span></a>
+                               </i><span class="hide-menu">Tài khoản</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{route('bill.index') }}" aria-expanded="false">
+                               </i><span class="hide-menu">Đơn hàng</span></a>
                         </li>
                     </ul>
 

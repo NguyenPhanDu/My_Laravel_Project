@@ -55,7 +55,7 @@
 							<p>User</p>
 						</header>
 						<div class="header__user-username">
-							<a href="#">{{Session::get('userLogin')}}</a>
+							<a href="#">{{Session::get('userLogin')->username}}</a>
 						</div>
 						
 						<div class="header__user-btn-logout">
@@ -68,9 +68,18 @@
 						@endif
 					</div>
 				</div>
+				@if(Session::has('userLogin'))
+				<div class="user">
+					<a href="{{route('showBill',Session::get('userLogin')->id)}}">
+						<div>
+							<img src="{{asset('shop/images/bill.png')}}" alt="https://www.flaticon.com/authors/freepik">
+						</div>
+					</a>
+				</div>
+				@endif
 				<!-- Phone -->
 				<div class="header_phone d-flex flex-row align-items-center justify-content-start">
-					<div><div><img src="{{asset('shop/images/phone.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></div>
+					<div><div><img  src="{{asset('shop/images/phone.svg')}}" alt="https://www.flaticon.com/authors/freepik"></div></div>
 					<div>0336685195</div>
 				</div>
 			</div>

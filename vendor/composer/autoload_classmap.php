@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Classes\\Cart' => $baseDir . '/app/Classes/Cart.php',
     'App\\Classes\\ImageUpload' => $baseDir . '/app/Classes/ImageUpload.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -13,9 +14,14 @@ return array(
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\admin\\CategoryGroupController' => $baseDir . '/app/Http/Controllers/admin/CategoryGroupController.php',
     'App\\Http\\Controllers\\admin\\ProductController' => $baseDir . '/app/Http/Controllers/admin/ProductController.php',
+    'App\\Http\\Controllers\\admin\\UserController' => $baseDir . '/app/Http/Controllers/admin/UserController.php',
     'App\\Http\\Controllers\\frontend\\IndexController' => $baseDir . '/app/Http/Controllers/frontend/IndexController.php',
+    'App\\Http\\Controllers\\user\\CartController' => $baseDir . '/app/Http/Controllers/user/CartController.php',
+    'App\\Http\\Controllers\\user\\UserLoginController' => $baseDir . '/app/Http/Controllers/user/UserLoginController.php',
+    'App\\Http\\Controllers\\user\\UserRegisterController' => $baseDir . '/app/Http/Controllers/user/UserRegisterController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
+    'App\\Http\\Middleware\\CheckAdminLogin' => $baseDir . '/app/Http/Middleware/CheckAdminLogin.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => $baseDir . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -25,6 +31,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\CategoryGroup' => $baseDir . '/app/Models/CategoryGroup.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
+    'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

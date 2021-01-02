@@ -37,10 +37,11 @@ class CategoryGroupController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required'
-        ]);
-        CategoryGroup::create($request->all());
+        $category=[
+            'name'=>$request->name,
+            'status'=>1
+        ];
+        CategoryGroup::create($category);
         return redirect()->route('catgroup.index')->with('success','Thêm danh mục mới thành công !!');
     }
 
